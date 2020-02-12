@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Kavoon&display=swap');
+@import '../assets/styles/mixins.scss';
+
+:root {
+  --green: #2d886f;
+  --grey: #8a8975;
+  --red: #e33a35;
+  --brown: #814427;
+  --brown-dark: #603520;
+  --pink-light: #ffe3e5;
+  --pink: #fea4a4;
+  --pink-dark: #ff6464;
+  --waffle: #fed593;
+  --waffle-shadow: #e8b268;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-family: 'Kavoon', sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background-image: url(../assets/images/bg-ptrn.jpg);
+}
+
+#app {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  overflow: hidden;
+
+  & > header {
+    flex: 0 1 140px;
+    display: flex;
+    flex-flow: column nowrap;
+    background-image: url(../assets/images/stand.png);
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    filter: drop-shadow(0 12px 2px rgba(155, 145, 145, 0.15));
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+
+    h2 {
+      color: #fff;
+      @include bordered-text(var(--brown-dark));
+    }
+
+    h1 {
+      color: var(--red);
+      transform: rotate(-2deg);
+      margin: -10px 0 -6px;
+      @include bordered-text(#fff);
+
+      &:before,
+      &:after {
+        content: '🍦';
+        display: inline-block;
+      }
+      &:before {
+        transform: rotate(-15deg);
+      }
+      &:after {
+        transform: rotate(15deg);
+      }
+    }
+    strong {
+      bottom: 0;
+      color: var(--green);
+      display: block;
+      font-size: 1.4em;
+      font-weight: normal;
+      position: absolute;
+      transform: rotate(-15deg) translate(50%, 0);
+      @include bordered-text(#fff);
+    }
+  }
+
+  & > main {
+    flex: 1;
+    overflow: auto;
+    margin: -40px 0 0;
+  }
+
+  ul.shop-list {
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 80px 0 40px;
+
+    li {
+      padding: 20px 20px 0;
+    }
+  }
+}

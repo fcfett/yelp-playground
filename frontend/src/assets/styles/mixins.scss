@@ -1,0 +1,29 @@
+@mixin bordered-text($border-color, $text-color: unset) {
+  @if $text-color != unset {
+    color: $text-color;
+  }
+
+  text-shadow: 0.09em 0 0 $border-color, -0.09em 0 0 $border-color, 0 0.09em 0 $border-color,
+    0 -0.09em 0 $border-color, 0.09em 0.09em $border-color, -0.09em -0.09em 0 $border-color,
+    0.09em -0.09em 0 $border-color, -0.09em 0.09em 0 $border-color, 0.16em 0.16em 6px rgba(#000, 0.4);
+}
+
+@mixin fadein($items: 6) {
+  animation: fadein 0.25s forwards;
+  opacity: 0;
+  transform: scale(0);
+  $delay: 0.15s;
+
+  @keyframes fadein {
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @for $i from 1 to $items {
+    &:nth-of-type(#{$i}) {
+      animation-delay: #{$delay * $i};
+    }
+  }
+}

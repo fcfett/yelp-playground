@@ -1,0 +1,103 @@
+.review {
+  background-color: #f9f9e7;
+  border-radius: 0 0 18px 18px;
+  color: var(--brown);
+  margin: 0 20px;
+  max-height: 0;
+  transform-origin: top;
+  transform: translateY(-100%);
+  transition: 0.25s ease-out;
+  transition-property: transform, max-height;
+  overflow: hidden;
+  box-shadow: 0 9px 2px -6px rgba(0, 0, 0, 0.15), inset 0 -4px 16px 4px #fff;
+  quotes: '“' '”' '“' '”';
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(../../assets/images/texture.svg);
+    mix-blend-mode: overlay;
+    box-shadow: inset 0 -4px 6px 4px #fff;
+    z-index: -1;
+  }
+
+  & > * {
+    opacity: 0;
+  }
+
+  &.active {
+    padding: 30px 20px;
+    max-height: 600px;
+    transform: translateY(0);
+
+    & > * {
+      opacity: 1;
+      transition: 0.25s 0.25s ease-out;
+      transition-property: opacity;
+    }
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    object-fit: cover;
+    height: 56px;
+    width: 56px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid var(--pink);
+  }
+
+  .avatar,
+  .date {
+    margin-right: 10px;
+  }
+
+  .rating,
+  .date {
+    color: var(--pink);
+    font-size: 0.8em;
+  }
+
+  .name {
+    font-size: 1.2em;
+    color: var(--pink-dark);
+  }
+
+  .rating {
+    position: relative;
+    top: -2px;
+    &:before {
+      content: '★';
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  .text {
+    color: var(--grey);
+    display: flex;
+    line-height: 1.4em;
+    margin: 20px 0 0;
+    margin-left: 26px;
+    padding-left: 20px;
+    border-left: 3px solid var(--pink);
+
+    &:before {
+      color: var(--pink-dark);
+      padding-right: 6px;
+      font-size: 1.4em;
+    }
+
+    &:after {
+      content: none;
+    }
+  }
+}
