@@ -170,6 +170,7 @@ li {
     }
 
     .title {
+      padding-right: 2rem;
       font-size: 1.4em;
       color: var(--red);
       @include bordered-text(#fff);
